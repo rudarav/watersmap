@@ -13,133 +13,8 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-    <style>
-        #mapid {
-            height: 680px;
-            width: 100%;
-            display: block;
-            /* position: absolute; */
-        }
-
-        select::-ms-expand {
-            display: none;
-        }
-
-        select {
-            display: inline-block;
-            box-sizing: border-box;
-            padding: 0.5em 2em 0.5em 0.5em;
-            border: 1px solid #eee;
-            font: inherit;
-            line-height: inherit;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            -ms-appearance: none;
-            appearance: none;
-            background-repeat: no-repeat;
-            background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
-            background-position: right 15px top 1em, right 10px top 1em;
-            background-size: 5px 5px, 5px 5px;
-        }
-
-        article .entry a {
-            text-decoration: none;
-        }
-
-        /* The Modal (background) */
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .modal-content {
-            position: relative;
-            background-color: #fefefe;
-            margin: auto;
-            padding: 0;
-            border: 1px solid #888;
-            width: 50%;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            -webkit-animation-name: animatetop;
-            -webkit-animation-duration: 0.4s;
-            animation-name: animatetop;
-            animation-duration: 0.4s
-        }
-
-        /* Add Animation */
-        @-webkit-keyframes animatetop {
-            from {
-                top: -300px;
-                opacity: 0
-            }
-
-            to {
-                top: 0;
-                opacity: 1
-            }
-        }
-
-        @keyframes animatetop {
-            from {
-                top: -300px;
-                opacity: 0
-            }
-
-            to {
-                top: 0;
-                opacity: 1
-            }
-        }
-
-        /* The Close Button */
-        .close {
-            color: white;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .modal-header {
-            padding: 2px 16px;
-            background-color: #536170;
-            color: white;
-        }
-
-        .modal-body {
-            padding: 2px 16px;
-        }
-
-        .splide__slide img {
-            width: 100%;
-            height: auto;
-        }
-    </style>
+    <!-- My -->
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -149,21 +24,22 @@
                 <option disabled selected value="">Обрати водойму...</option>
             </select>
         </p>
+        <!-- Мапа -->
         <div id="mapid"></div>
-        <!-- The Modal -->
+        <!-- The Modal Фотогалерея-->
         <div id="myModal" class="modal">
 
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h3>Фотогалерея</h3>
+                    <p>📷</p>
                 </div>
                 <div class="modal-body">
                     <div id="image-slider" class="splide">
                         <div class="splide__track">
                             <ul class="splide__list">
-                                <li class="splide__slide">
+                                <!-- <li class="splide__slide">
                                     <img src="./src/img/Lanivtsi4/Lanivtsi4_1.jpg">
                                 </li>
                                 <li class="splide__slide">
@@ -171,7 +47,7 @@
                                 </li>
                                 <li class="splide__slide">
                                     <img src="./src/img/Lanivtsi4/Lanivtsi4_3.jpg">
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -182,114 +58,8 @@
     </center>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-    <script>
-        let data_waters = [
-            { name: 'м.Ланівці #1 (орендовано)', location: [49.846507, 26.100237], thumb: '', album: '' },
-            { name: 'м.Ланівці #2 (орендовано)', location: [49.85156, 26.093528], thumb: '', album: '' },
-            { name: 'м.Ланівці #3', location: [49.858617, 26.090585], thumb: '1MDkNiJACbIjSDm4u56Vxi4mRT_5RHKA7', album: 'Hr4LK4oCqb5GydGD6' },
-            { name: 'м.Ланівці #4', location: [49.861674, 26.087055], thumb: '1V3Z4TGm_zY5lo8S1cfZmjewgaqzET_-W', album: 'APuLL2KsLCu8NRK3A' },
-            { name: 'м.Ланівці #5', location: [49.861549, 26.081884], thumb: '1GLuTmp6rF0CYjRb0HNnVWYZDITM4Ov32', album: 'XS4DvsvsYok7Fq6D9' },
-            { name: 'с.Білозірка', location: [49.766017, 26.190421], thumb: '', album: '' },
-            { name: 'с.Буглів (орендовано)', location: [49.767050, 26.068930], thumb: '1uNLZYx4dnNM6Uz3W5G8XJCP-c8k1hLYh', album: '' },
-            { name: 'с.Вербовець #1', location: [49.812410, 25.913759], thumb: '', album: '' },
-            { name: 'с.Вербовець #2', location: [49.813718, 25.917890], thumb: '', album: '' },
-            { name: 'с.Вербовець #3', location: [49.815656, 25.920165], thumb: '', album: '' },
-            { name: 'с.Вербовець #4', location: [49.816827, 25.872854], thumb: '', album: '' },
-            { name: 'с.Верещаки', location: [49.753178, 25.968639], thumb: '', album: '' },
-            { name: 'с.Влащинці', location: [49.789954, 25.926943], thumb: '', album: '' },
-            { name: 'с.Гриньки #1 (орендовано)', location: [49.854270, 26.131825], thumb: '', album: '' },
-            { name: 'с.Гриньки #2 (орендовано)', location: [49.854281, 26.143706], thumb: '', album: '' },
-            { name: 'с.Гриньки #3 (орендовано)', location: [49.855568, 26.116690], thumb: '', album: '' },
-            { name: 'с.Жуківці #1 (орендовано)', location: [49.814020, 26.006112], thumb: '', album: '' },
-            { name: 'с.Загірці #1 (орендовано)', location: [49.947439, 26.088913], thumb: '', album: '' },
-            { name: 'с.Загірці #2', location: [49.938703, 26.126361], thumb: '', album: '' },
-            { name: 'с.Загірці #3', location: [49.939366, 26.122102], thumb: '', album: '' },
-            { name: 'с.Коростава', location: [49.754108, 26.023038], thumb: '', album: '' },
-            { name: 'с.Мала Білка #1 (орендовано)', location: [49.817389, 25.967609], thumb: '', album: '' },
-            { name: 'с.Молотків #1', location: [49.816927, 26.206375], thumb: '', album: '' },
-            { name: 'с.Молотків #2', location: [49.822181, 26.198194], thumb: '', album: '' },
-            { name: 'с.Москалівка', location: [49.760728, 26.122926], thumb: '', album: '' },
-            { name: 'с.Оришківці #1 (орендовано)', location: [49.841156, 26.112349], thumb: '', album: '' },
-            { name: 'с.Іванківці #1 (орендовано)', location: [49.803743, 26.134284], thumb: '', album: '' },
-            { name: 'с.Юськівці #1', location: [49.911136, 26.124202], thumb: '', album: '' },
-            { name: 'с.Юськівці #2', location: [49.911025, 26.125586], thumb: '', album: '' },
-            { name: 'с.Юськівці #3', location: [49.910652, 26.127442], thumb: '', album: '' },
-            { name: 'с.Юськівці #4', location: [49.903432, 26.106677], thumb: '', album: '' },
-            { name: 'с.Якимівці #1', location: [49.934860, 26.067624], thumb: '', album: '' },
-            { name: 'с.Якимівці #2', location: [49.935136, 26.056101], thumb: '', album: '' },
-            { name: 'с.Якимівці #3', location: [49.935769, 26.053719], thumb: '', album: '' },
-            { name: 'с.Якимівці #4', location: [49.936731, 26.045297], thumb: '', album: '' },
-        ];
-
-        var mymap = L.map('mapid').setView([49.87, 26.09], 11);
-
-        L.tileLayer('https://tms{s}.visicom.ua/2.0.0/planet3/base/{z}/{x}/{y}.png?key={accessToken}', {
-            attribution: 'Дані карт © АТ «<a href="https://api.visicom.ua/">Візіком</a>»',
-            maxZoom: 19,
-            subdomains: '123',
-            tms: true,
-            accessToken: '719fa393f85afa2b1b0f6c8bc851571b'
-        }).addTo(mymap);
-
-
-        data_waters.forEach((water, n) => {
-            if (water.name) {
-
-                var mark = L.marker(water.location).addTo(mymap).bindPopup(
-                    `<a href="javascript:void(0);" onclick="openSlider(${n});" >
-                    <b>${water.name}</b><br>
-                    <img src="./src/img/Lanivtsi4/Lanivtsi4_1.jpg" width="160" height="100">
-                    </a>`
-                );
-
-                $('#waterlist').append($('<option>', {
-                    value: n,
-                    text: water.name
-                }));
-                water.marker = mark;
-            }
-        });
-
-        // mymap.on('popupopen', function(e) { new Splide( '#image-slider' ).mount(); });
-
-        // $(document).ready(function () {
-        //     new Splide('#image-slider').mount();
-        // })
-
-        function openSlider(n) {
-            $("#myModal").css("display", "block");
-            $("#mapid").css("display", "none");
-        }
-
-
-        function setVievMarker(water) {
-            mymap.setView(water.location, 15);
-            water.marker.openPopup();
-        }
-        // document.addEventListener( 'DOMContentLoaded', function () {
-        new Splide('#image-slider', {type: 'loop'}).mount();
-        // } );
-
-        $("#waterlist").change(function () {
-            setVievMarker(data_waters[$(this).val()]);
-        });
-
-        // When the user clicks on <span> (x), close the modal
-        $(".close").click(function () {
-            $("#myModal").css("display", "none");
-            $("#mapid").css("display", "block");
-        })
-
-        var modal = document.getElementById("myModal");
-        // When the user clicks anywhere outside of the modal, close it
-        $(window).click(function (event) {
-            if (event.target == modal) {
-                $("#myModal").css("display", "none");
-                $("#mapid").css("display", "block");
-            }
-        })
-
-    </script>
+    <!-- My -->
+    <script src="./scripts.js"></script>
 </body>
 
 </html>
