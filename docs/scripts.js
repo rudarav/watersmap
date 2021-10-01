@@ -1,9 +1,9 @@
 let data_waters = [
     { name: 'м.Ланівці #1 (орендовано)', location: [49.846507, 26.100237], waterpath: 'Lanivtsi1', photoes: [] },
     { name: 'м.Ланівці #2 (орендовано)', location: [49.85156, 26.093528], waterpath: 'Lanivtsi2', photoes: [] },
-    { name: 'м.Ланівці #3', location: [49.858617, 26.090585], waterpath: 'Lanivtsi3', photoes: [] },
+    { name: 'м.Ланівці #3', location: [49.858617, 26.090585], waterpath: 'Lanivtsi3', photoes: ['Lanivtsi3_1.jpg', 'Lanivtsi3_2.jpg', 'Lanivtsi3_3.jpg', 'Lanivtsi3_4.jpg', 'Lanivtsi3_5.jpg', 'Lanivtsi3_6.jpg'] },
     { name: 'м.Ланівці #4', location: [49.861674, 26.087055], waterpath: 'Lanivtsi4', photoes: ['Lanivtsi4_1.jpg', 'Lanivtsi4_2.jpg', 'Lanivtsi4_3.jpg', 'Lanivtsi4_4.jpg', 'Lanivtsi4_5.jpg', 'Lanivtsi4_6.jpg', 'Lanivtsi4_7.jpg', 'Lanivtsi4_8.jpg', 'Lanivtsi4_9.jpg'] },
-    { name: 'м.Ланівці #5', location: [49.861549, 26.081884], waterpath: 'Lanivtsi5', photoes: [] },
+    { name: 'м.Ланівці #5', location: [49.861549, 26.081884], waterpath: 'Lanivtsi5', photoes: ['Lanivtsi5_1.jpg', 'Lanivtsi5_2.jpg'] },
     { name: 'с.Білозірка', location: [49.766017, 26.190421], waterpath: '', photoes: [] },
     { name: 'с.Буглів (орендовано)', location: [49.767050, 26.068930], waterpath: '', photoes: [] },
     { name: 'с.Вербовець #1', location: [49.812410, 25.913759], waterpath: '', photoes: [] },
